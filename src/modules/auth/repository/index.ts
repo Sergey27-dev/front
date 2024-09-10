@@ -1,9 +1,9 @@
 import { LoginPasswordPayload, LoginPhonePayload, LoginPhoneResponse, LoginResponse } from './types/Login.ts';
 import ApiRepository from './ApiRepository.ts';
-import FakeRepository from './FakeRepository.ts';
 import { ValidateCodePayload } from './types/Code.ts';
 
 export interface AuthRepository {
+    authByGithub(): Promise<string>;
     login(json: LoginPasswordPayload): Promise<LoginResponse>;
     phoneLogin(json: LoginPhonePayload): Promise<LoginPhoneResponse>;
     validateCode(json: ValidateCodePayload): Promise<LoginResponse>;
@@ -15,8 +15,6 @@ export enum Endpoints {
     ValidateCode = 'users/validate-code',
 }
 
-export function useAuthRepository(fake?: false): ApiRepository;
-export function useAuthRepository(fake: true): FakeRepository;
-export function useAuthRepository(fake: boolean = false): AuthRepository {
-    return new (fake ? FakeRepository : ApiRepository)();
+export function useAuthRepository(): AuthRepository {
+    return new ApiRepository();
 }

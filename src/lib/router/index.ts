@@ -28,18 +28,18 @@ router.beforeEach(async (route: RouteLocationNormalized): Promise<void> => {
  * Если (пользователь аутентифицирован) и (путь скрыт для аутентифицированных пользователей)
  * В таком случае перенаправляем на главную страницу
  */
-router.beforeEach(async (to: RouteLocationNormalized): Promise<string | void> => {
+/*router.beforeEach(async (to: RouteLocationNormalized): Promise<string | void> => {
     if (useAuthStore().isAuthenticated && to.meta.hideForAuth) {
         return '/';
     }
-});
+});*/
 
 /**
  * Если (пользователь не аутентифицирован) и (путь не публичный)
  * В таком случае перенаправляем на страницу входа
  */
-router.beforeEach(async (to: RouteLocationNormalized): Promise<RouteRecordRaw | void> => {
+/*router.beforeEach(async (to: RouteLocationNormalized): Promise<RouteRecordRaw | void> => {
     if (!useAuthStore().isAuthenticated && !to.meta.isPublic) {
         return login;
     }
-});
+});*/

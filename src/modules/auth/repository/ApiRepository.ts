@@ -15,4 +15,12 @@ export default class ApiRepository implements AuthRepository {
     public async validateCode(json: ValidateCodePayload) {
         return api.post(Endpoints.ValidateCode, { json }).json<LoginResponse>();
     }
+
+    public async authByGithub(): Promise<string> {
+        return api.extend({
+            redirect: 'manual',
+        })
+            .get('oauth2/authorization/github')
+            .text();
+    }
 }
