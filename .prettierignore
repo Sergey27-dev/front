@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build
+
+pnpm-lock.yaml
+README.md
+
+components.d.ts
+auto-imports.d.ts

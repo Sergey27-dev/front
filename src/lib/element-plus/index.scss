@@ -1,0 +1,26 @@
+@forward 'element-plus/theme-chalk/src/common/var' with (
+    $card: (
+        'border-radius': 8px,
+        'border-color': transparent,
+    )
+);
+
+@use 'element-plus/theme-chalk/src/notification' as *;
+
+.el-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+
+    &-item {
+        margin-bottom: 0;
+
+        &__error {
+            padding-top: 5px;
+        }
+    }
+}
+
+.el-alert--error.is-light {
+    background-color: var(--el-color-error);
+}

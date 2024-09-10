@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Roboto, serif;
+}
+
+.fake-label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    translate: 0 -50%;
+    cursor: text;
+}
+
+.close-button {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    &::after,
+    &::before {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #7a7a7a;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+}

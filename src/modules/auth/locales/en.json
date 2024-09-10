@@ -1,0 +1,14 @@
+{
+    "forgotten_password": "Forgot your username or password?",
+    "enter_code": "Enter code",
+    "enter_code_desc": "A message with a code has been sent to your phone. Enter code to continue",
+    "retry_code": "Request code again",
+
+    "forgot_password_title": "Forgot your password?",
+    "forgot_password_desc": "Contact your administrator for a password recovery link.",
+
+    "validation": {
+        "required": "Please input your {field}",
+        "type": "Field {field} contains invalid data"
+    }
+}

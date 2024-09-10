@@ -1,0 +1,7 @@
+{
+    "vueIndentScriptAndStyle": true,
+    "singleQuote": true,
+    "singleAttributePerLine": true,
+    "htmlWhitespaceSensitivity": "ignore",
+    "experimentalTernaries": true
+}
