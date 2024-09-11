@@ -5,9 +5,7 @@
         </h1>
 
         <p>Для работы с сайтом необходимо авторизоваться через GitHub</p>
-
-        <a :href="getApiBaseUrl() + 'oauth2/authorization/github'">Авторизоваться</a>
-
+        
         <el-button
             type="primary"
             @click="handleClickAuth"
@@ -19,23 +17,23 @@
 
 <script setup lang="ts">
     import { getApiBaseUrl } from '@src/base/helpers/getApiBaseUrl.ts';
-    import { useAuthRepository } from '@src/modules/auth/repository';
-    import { HTTPError } from 'ky';
+    import { getGithubLink } from "@src/modules/auth/helpers/getGithubLink.ts";
+    import { onMounted } from "vue";
+    import { useRoute } from "vue-router";
+    import {useAuthRepository} from "@src/modules/auth/repository";
 
+    const route = useRoute();
     const authRepository = useAuthRepository();
 
-    const handleClickAuth = () => {
-        authRepository.authByGithub()
-            .then(response => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error.response.status)
-                if (error instanceof HTTPError && error.response.status === 302) {
-                    console.log(error.response.headers.location);
-                }
-            });
+    const handleClickAuth = async () => {
+        window.location.href = getGithubLink();
     };
+
+    onMounted(async () => {
+        if (route.query.code) {
+            await authRepository.authByGithub(route.query.code);
+        }
+    })
 </script>
 
 <style scoped lang="scss">

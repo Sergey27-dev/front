@@ -10,4 +10,7 @@ interface ImportMetaEnv {
 
     VITE_DEFAULT_LOCALE?: string;
     VITE_FALLBACK_LOCALE?: string;
+
+    VITE_CLIENT_ID?: string;
+    VITE_CURRENT_HOST: string;
 }

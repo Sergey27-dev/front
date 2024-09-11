@@ -16,11 +16,9 @@ export default class ApiRepository implements AuthRepository {
         return api.post(Endpoints.ValidateCode, { json }).json<LoginResponse>();
     }
 
-    public async authByGithub(): Promise<string> {
-        return api.extend({
-            redirect: 'manual',
-        })
-            .get('oauth2/authorization/github')
+    public async authByGithub(code: string): Promise<string> {
+        return api
+            .get('login/oauth2/code/github?code=' + code)
             .text();
     }
 }

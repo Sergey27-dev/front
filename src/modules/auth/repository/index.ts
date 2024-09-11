@@ -3,7 +3,7 @@ import ApiRepository from './ApiRepository.ts';
 import { ValidateCodePayload } from './types/Code.ts';
 
 export interface AuthRepository {
-    authByGithub(): Promise<string>;
+    authByGithub(code: string): Promise<string>;
     login(json: LoginPasswordPayload): Promise<LoginResponse>;
     phoneLogin(json: LoginPhonePayload): Promise<LoginPhoneResponse>;
     validateCode(json: ValidateCodePayload): Promise<LoginResponse>;
