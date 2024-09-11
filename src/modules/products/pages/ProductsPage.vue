@@ -1,7 +1,12 @@
 <template>
-    <h1 class="page-title">
-        Продукты
-    </h1>
+    <div class="heading">
+        <h1 class="page-title">
+            Продукты
+        </h1>
+
+        <el-button @click="router.push(createProduct)">Добавить продукт</el-button>
+    </div>
+
 
     <el-table
         v-if="products"
@@ -35,7 +40,7 @@
     import { useProductRepository } from '../repository';
     import { Product, ProductsList } from '../repository/types/Products.ts';
     import { ElNotification } from 'element-plus';
-    import { product } from '@src/modules/products';
+    import {createProduct, product} from '@src/modules/products';
     import { router } from '@src/lib/router';
 
     const products = ref<ProductsList>();

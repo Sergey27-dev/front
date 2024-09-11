@@ -30,9 +30,7 @@
                 console.log(response);
             })
             .catch((error) => {
-                console.log(111);
-                console.log(error);
-                console.log(error.response.headers.entries());
+                console.log(error.response.status)
                 if (error instanceof HTTPError && error.response.status === 302) {
                     console.log(error.response.headers.location);
                 }

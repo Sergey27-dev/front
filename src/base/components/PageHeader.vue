@@ -2,14 +2,17 @@
     <el-header class="header">
         <span class="logo">Учебный проект</span>
 
-        <el-button>
+        <el-button @click="router.push(login)">
             Авторизоваться
         </el-button>
     </el-header>
 </template>
 
 <script setup lang="ts">
+    import {login} from "@src/modules/auth";
+    import {useRouter} from "vue-router";
 
+    const router = useRouter();
 </script>
 
 <style scoped lang="scss">

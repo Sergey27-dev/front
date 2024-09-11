@@ -8,10 +8,16 @@ export const product: RouteRecordRaw = {
     name: 'products.show',
 };
 
+export const createProduct: RouteRecordRaw = {
+    path: '/products/create',
+    component: ProductPage,
+    name: 'products.create',
+};
+
 export const products: RouteRecordRaw = {
     path: '/products',
     component: ProductsPage,
     name: 'products',
 };
 
-export const productsRoutes = <RouteRecordRaw[]>[products, product];
+export const productsRoutes = <RouteRecordRaw[]>[products, product, createProduct];
